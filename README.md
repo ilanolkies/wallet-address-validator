@@ -79,7 +79,7 @@ npm install wallet-address-validator
 
 * Raiblocks/XRB, `'raiblocks'` or `'XRB'`
 * Ripple/XRP, `'ripple'` or `'XRP'`
-* RSK MainNet/RBTC `'rsk'` or `'RBTC'`
+* RSK/RBTC `'rsk'` or `'RBTC'`
 
 * Snowgem/SNG, `'snowgem'` or `'SNG'`
 
