@@ -382,6 +382,36 @@ describe('WAValidator.validate()', function () {
             valid('xrb_1q79ahdr36uqn38p5tp5sqwkn73rnpj1k8obtuetdbjcx37d5gahhd1u9cuh', 'nano');
             valid('nano_1q79ahdr36uqn38p5tp5sqwkn73rnpj1k8obtuetdbjcx37d5gahhd1u9cuh', 'nano');
         });
+
+        it('should return true for correct RSK addresses', function () {
+            valid('0x5aaEB6053f3e94c9b9a09f33669435E7ef1bEAeD', 'rsk');
+            valid('0xFb6916095cA1Df60bb79ce92cE3EA74c37c5d359', 'rsk');
+            valid('0xDBF03B407c01E7CD3cBea99509D93F8Dddc8C6FB', 'rsk');
+            valid('0xD1220A0Cf47c7B9BE7a2e6ba89F429762E7B9adB', 'rsk');
+
+            valid('0x5aAeb6053F3e94c9b9A09F33669435E7EF1BEaEd', 'rsk', 'testnet');
+            valid('0xFb6916095CA1dF60bb79CE92ce3Ea74C37c5D359', 'rsk', 'testnet');
+            valid('0xdbF03B407C01E7cd3cbEa99509D93f8dDDc8C6fB', 'rsk', 'testnet');
+            valid('0xd1220a0CF47c7B9Be7A2E6Ba89f429762E7b9adB', 'rsk', 'testnet');
+
+            invalid('0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed', 'rsk');
+            invalid('0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359', 'rsk');
+            invalid('0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB', 'rsk');
+            invalid('0xD1220A0cf47c7B9Be7A2E6BA89F429762e7b9aDb', 'rsk');
+            invalid('0x5aaeb6053F3E94C9B9A09f33669435E7Ef1BeAed', 'rsk');
+            invalid('0xfb6916095ca1df60bb79Ce92ce3ea74c37c5d359', 'rsk');
+            invalid('0xDBF03B407C01E7CD3CBEA99509D93f8DDDC8C6FB', 'rsk');
+            invalid('0xD1220A0cf47c7B9Be7A2E6BA89F429762e7b9aDb', 'rsk');
+
+            invalid('0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed', 'rsk', 'testnet');
+            invalid('0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359', 'rsk', 'testnet');
+            invalid('0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB', 'rsk', 'testnet');
+            invalid('0xD1220A0cf47c7B9Be7A2E6BA89F429762e7b9aDb', 'rsk', 'testnet');
+            invalid('0x5aaeb6053F3E94C9B9A09f33669435E7Ef1BeAed', 'rsk', 'testnet');
+            invalid('0xfb6916095ca1df60bb79Ce92ce3ea74c37c5d359', 'rsk', 'testnet');
+            invalid('0xDBF03B407C01E7CD3CBEA99509D93f8DDDC8C6FB', 'rsk', 'testnet');
+            invalid('0xD1220A0cf47c7B9Be7A2E6BA89F429762e7b9aDb', 'rsk', 'testnet');
+        });
     });
 
     describe('invalid results', function () {
@@ -594,6 +624,11 @@ describe('WAValidator.validate()', function () {
             invalid('nano_1f5e4w33ndqbkx4bw5jtp13kp5xghebfxcmw9hdt1f7goid1s4373w6tjdgu', 'nano');
             invalid('xrb_1111111112111111111111111111111111111111111111111111hifc8npp', 'nano');
             invalid('nano_111111111111111111111111111111111111111111111111111hifc8npp', 'nano');
+        });
+
+        it('should return false for incorrect RSK addresses', function () {
+            commonTests('rsk');
+            commonTests('rsk', 'testnet');
         });
     });
 });
